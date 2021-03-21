@@ -10,7 +10,6 @@ public class Menu {
     public void addPerson() {
         final String firstName, lastName, address, city, state, phoneNumber, zipCode;
 
-
         System.out.print("Enter First Name : ");
         firstName = GetData.getStringValue();
         System.out.print("Enter Last Name : ");
@@ -42,18 +41,16 @@ public class Menu {
 
     }
 
-    public void editPerson()
-    {
-        int id,choice = 0, i=0;
-        String firstName,lastName,address,city,state,phoneNumber,zipCode;
-        for(Person person: PERSON)
-        {
-            System.out.println("ID: #"+PERSON.indexOf(person)+" : "+person);
+    public void editPerson() {
+        int id, choice = 0, i = 0;
+        String firstName, lastName, address, city, state, phoneNumber, zipCode;
+        for (Person person : PERSON) {
+            System.out.println("ID: #" + PERSON.indexOf(person) + " : " + person);
         }
         System.out.print("\nEnter ID to Edit Contact : ");
         id = GetData.getIntValue();
         System.out.println(PERSON.get(id));
-        while(i==0) {
+        while (i == 0) {
             System.out.println("What You Want to edit...\n"
                     + "\t1: Address\n"
                     + "\t2: city\n"
@@ -89,13 +86,26 @@ public class Menu {
                     PERSON.get(id).setZipCode(zipCode);
                     break;
                 case 6:
-                    i=1;
+                    i = 1;
                     break;
                 default:
                     System.out.println("Please Enter Valid Option");
             }
             System.out.println(PERSON.get(id));
+
         }
     }
-}
+            public void delete() {
+                int id;
+                for(Person p: PERSON)
+                {
+                    System.out.println("ID: "+PERSON.indexOf(p)+" : "+p);
+                }
+                System.out.print("\nEnter #ID to delete Contact : ");
+                id = GetData.getIntValue();
+                PERSON.remove(id);
+            }
+        }
+
+
 
